@@ -1,0 +1,15 @@
+<div>
+    <h2>Recommendations</h2>
+    <ul>
+      <li *ngFor="let recommendation of recommendations">
+        {{ recommendation.name }} <button (click)="deleteRecommendation(recommendation.id)">Delete</button>
+      </li>
+    </ul>
+  
+    <h3>Add Recommendation</h3>
+    <form (ngSubmit)="addRecommendation()">
+      <label for="name">Name:</label>
+    <input id="name" [(ngModel)]="newRecommendation.name" name="name" required>
+      <button type="submit">Add</button>
+    </form>
+  </div>

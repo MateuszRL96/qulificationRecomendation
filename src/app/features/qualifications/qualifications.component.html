@@ -1,0 +1,15 @@
+<div>
+    <h2>Qualifications</h2>
+    <ul>
+      <li *ngFor="let qualification of qualifications">
+        {{ qualification.name }} <button (click)="deleteQualification(qualification.id)">Delete</button>
+      </li>
+    </ul>
+  
+    <h3>Add Qualification</h3>
+    <form (ngSubmit)="addQualification()">
+      <label for="name">Name:</label>
+      <input id="name" [(ngModel)]="newQualification.name" name="name" required>
+      <button type="submit">Add</button>
+    </form>
+  </div>
