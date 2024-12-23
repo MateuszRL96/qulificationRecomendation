@@ -27,10 +27,12 @@ li {
 }
 
 button {
-    background-color: #0056b3;
+    background-color: #1c68b9;
     color: white;
     border: none;
     padding: 5px 10px;
+    text-align: center;
+    width: 20%;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -57,4 +59,17 @@ input {
     width: 100%;
     box-sizing: border-box;
     margin-bottom: 10px;
+}
+
+button.active {
+    background-color: rgb(4, 6, 118);
+}
+
+button:not(.active) {
+    background-color: rgb(32, 84, 146);
+}
+
+.add-button {
+    width: 20%;
+    align-self: center;
 }

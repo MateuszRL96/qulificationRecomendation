@@ -1,0 +1,59 @@
+.qualification-details-container {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #333;
+  border-radius: 10px;
+  background-color: #f3e5f5; /* Jasny fioletowy */
+}
+
+h1, h2, h3 {
+  color: #6a1b9a; /* Ciemny fioletowy */
+}
+
+.description {
+  font-size: 1.1em;
+  color: #6a1b9a; /* Ciemny fioletowy */
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+  gap: 10px; /* Odstęp między elementami */
+}
+
+.skill-item {
+  flex: 1 1 calc(25%); /* 3 elementy w jednej linii, z uwzględnieniem odstępu */
+  box-sizing: border-box;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #6a1b9a; /* Ciemny fioletowy */
+  border-radius: 10px;
+  background-color: #e1bee7; /* Jasny fioletowy */
+}
+
+.skill-image {
+  max-width: 100px;
+  display: block;
+  margin-top: 10px;
+}
+
+.skill-links {
+  list-style-type: none;
+  padding: 0;
+}
+
+.skill-links li {
+  margin: 5px 0;
+}
+
+.skill-links a {
+  color: blue;
+  text-decoration: underline;
+}
+
+.skill-links a:hover {
+  text-decoration: none;
+}

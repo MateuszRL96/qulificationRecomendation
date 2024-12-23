@@ -2,11 +2,16 @@ import { Routes } from '@angular/router';
 import { UsersComponent } from './features/users/users.component';
 import { QualificationsComponent } from './features/qualifications/qualifications.component';
 import { RecommendationsComponent } from './features/recomentations/recomentations.component';
+import { AboutComponent } from './about/about.component';
+import { QualificationDetailsComponent } from './qualifications/qualification-details/qualification-details.component';
 
 
 export const routes: Routes = [
   { path: 'users', component: UsersComponent },
   { path: 'qualifications', component: QualificationsComponent },
   { path: 'recommendations', component: RecommendationsComponent },
-  { path: '', redirectTo: '/users', pathMatch: 'full' }
+  { path: 'about', component: AboutComponent },
+  { path: '', redirectTo: '/users', pathMatch: 'full' },
+  { path: 'qualifications/:id/skills', component: QualificationDetailsComponent }
+
 ];

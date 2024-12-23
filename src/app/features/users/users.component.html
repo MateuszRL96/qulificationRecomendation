@@ -1,15 +1,25 @@
 <div>
-    <h2>Users</h2>
-    <ul>
-      <li *ngFor="let user of users">
-        {{ user.name }} <button (click)="deleteUser(user.id)">Delete</button>
-      </li>
-    </ul>
-  
-    <h3>Add User</h3>
-    <form (ngSubmit)="addUser()">
+  <h2>Users</h2>
+  <ul>
+    <li *ngFor="let user of users">
+      {{ user.name }} ({{ user.role }}) <button (click)="deleteUser(user.id)">Delete</button>
+    </li>
+  </ul>
+
+  <h3>Add User</h3>
+  <form (ngSubmit)="addUser()" style="display: flex; flex-direction: column; gap: 10px;">
+    <div style="display: flex; gap: 10px; align-items: center;">
       <label for="name">Name:</label>
       <input id="name" [(ngModel)]="newUser.name" name="name" required>
-      <button type="submit">Add</button>
-    </form>
-  </div>
+      
+      <label for="email">Email:</label>
+      <input id="email" [(ngModel)]="newUser.email" name="email" required>
+      
+      <label>Role:</label>
+      <button type="button" (click)="newUser.isAdmin = true" [class.active]="newUser.isAdmin">Admin</button>
+      <button type="button" (click)="newUser.isAdmin = false" [class.active]="!newUser.isAdmin">User</button>
+    </div>
+    
+    <button type="submit" class="add-button">Add</button>
+  </form>
+</div>

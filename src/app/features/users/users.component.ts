@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class UsersComponent implements OnInit {
   users: any[] = [];
-  newUser: any = {};
+  newUser = { name: '', email: '', isAdmin: false };
 
   constructor(private usersService: UsersService) { }
 
@@ -26,10 +26,16 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  addUser(): void {
-    this.usersService.addUser(this.newUser).subscribe(() => {
-      this.loadUsers();
-      this.newUser = {};
+  addUser() {
+    const userToAdd = {
+      name: this.newUser.name,
+      email: this.newUser.email,
+      role: this.newUser.isAdmin ? 'admin' : 'user'
+    };
+
+    this.usersService.addUser(userToAdd).subscribe(user => {
+      this.users.push(user);
+      this.newUser = { name: '', email: '', isAdmin: false };
     });
   }
 
