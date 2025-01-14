@@ -1,93 +1,193 @@
-div {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid #333;
-    border-radius: 10px;
-    background-color: #f3e5f5; /* Jasny fioletowy */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
 }
 
-h2, h3 {
-    color: #6a1b9a; /* Ciemny fioletowy */
+.main-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background: linear-gradient(90deg, #004d40, #00796b); /* Gradient od ciemnozielonego do ciemnoniebieskiego */
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.instructions-container {
+  flex: 1;
+}
+
+.search-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: auto 0;
+}
+
+.search-input {
+  padding: 10px;
+  border: 1px solid #00796b;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.search-button, .toggle-search-button {
+  background-color: #004d40;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-button:hover, .toggle-search-button:hover {
+  background-color: #00796b;
 }
 
 .qualifications-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
 }
 
 .qualification {
-    position: relative; /* Dodaj pozycję względną */
-    width: 20%;
-    padding: 10px;
-    border: 1px solid #6a1b9a; /* Ciemny fioletowy */
-    border-radius: 10px;
-    background-color: #e1bee7; /* Jasny fioletowy */
-    box-sizing: border-box;
-    height: 250px;
+  position: relative; /* Dodaj pozycję względną */
+  width: 24%; /* Zwiększ szerokość elementów */
+  padding: 10px;
+  border: 1px solid #00796b; /* Ciemny zielony */
+  border-radius: 10px;
+  background-color: #6ec7c2; /* Jasny zielony */
+  box-sizing: border-box;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .qualification p {
-    margin: 0;
+  margin: 0;
 }
 
 .qualification p.description {
-    font-size: 0.9em; /* Mniejsza czcionka dla opisu */
-    color: #6a1b9a; /* Ciemny fioletowy */
+  font-size: 0.9em; /* Mniejsza czcionka dla opisu */
+  color: #00796b; /* Ciemny zielony */
 }
 
-button {
-    background-color: #8e24aa; /* Średni fioletowy */
-    color: white;
-    border: none; /* Usuń ramkę */
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    height: 40px; /* Stała wysokość przycisków */
-    position: absolute; /* Dodaj pozycję absolutną */
-    bottom: 10px; /* Ustaw na dole */
+.qualification-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Odstęp między przyciskami */
 }
 
-button:first-of-type {
-    left: 10px; /* Ustaw pierwszy przycisk po lewej stronie */
+.details-button {
+  background-color: #004d40; /* Ciemny zielony */
+  color: white;
+  border: none; /* Usuń ramkę */
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  height: 40px; /* Stała wysokość przycisków */
 }
 
-button:last-of-type {
-    right: 10px; /* Ustaw drugi przycisk po prawej stronie */
-    background-color: #e53935; /* Czerwony kolor dla przycisku Usuń */
+.details-button:hover {
+  background-color: #00796b; /* Ciemniejszy zielony */
 }
 
-button:last-of-type:hover {
-    background-color: #b71c1c; /* Ciemniejszy czerwony kolor przy hover */
+.edit-delete-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* Odstęp między przyciskami */
 }
 
-button:hover {
-    background-color: #6a1b9a; /* Ciemny fioletowy */
+.edit-delete-buttons button {
+  background-color: #004d40; /* Ciemny zielony */
+  color: white;
+  border: none; /* Usuń ramkę */
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  height: 40px; /* Stała wysokość przycisków */
+  flex: 1; /* Równa szerokość przycisków */
+}
+
+.edit-delete-buttons button:last-of-type {
+  background-color: #d32f2f; /* Czerwony kolor dla przycisku Usuń */
+}
+
+.edit-delete-buttons button:last-of-type:hover {
+  background-color: #b71c1c; /* Ciemniejszy czerwony kolor przy hover */
+}
+
+.edit-delete-buttons button:hover {
+  background-color: #00796b; /* Ciemniejszy zielony */
+}
+
+.star-button {
+  background-color: transparent;
+  border: none;
+  color: #ffeb3b; /* Żółty kolor dla gwiazdki */
+  cursor: pointer;
+  font-size: 24px;
+  align-self: flex-end;
+}
+
+.star-button:hover {
+  color: #ffc107; /* Jaśniejszy żółty kolor przy hover */
+}
+
+.level-selector {
+  margin-top: 10px;
+}
+
+.level-selector select {
+  padding: 5px;
+  border: 1px solid #00796b;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.selected-level {
+  margin-top: 5px;
+  color: #00796b;
 }
 
 .form-container {
-    width: 35%; /* Ustaw szerokość kontenera na 35% */
-    margin: 0 auto; /* Wyśrodkuj kontener */
-    margin-top: 20px;
-    padding: 20px;
-    border: 1px solid #6a1b9a; /* Ciemny fioletowy */
-    border-radius: 10px;
-    background-color: #e1bee7; /* Jasny fioletowy */
+  width: 35%; /* Ustaw szerokość kontenera na 35% */
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #00796b; /* Ciemny zielony */
+  border-radius: 10px;
+  background-color: #e0f2f1; /* Jasny zielony */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 label {
-    display: block;
-    margin-bottom: 5px;
-    color: #6a1b9a; /* Ciemny fioletowy */
+  display: block;
+  margin-bottom: 5px;
+  color: #00796b; /* Ciemny zielony */
 }
 
 input {
-    padding: 5px;
-    border: 1px solid #333;
-    border-radius: 5px;
-    width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
 }

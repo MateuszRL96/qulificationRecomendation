@@ -1,43 +1,78 @@
-.qualification-details-container {
+body {
   font-family: Arial, sans-serif;
-  margin: 20px;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+.qualification-details-container {
+  background: linear-gradient(90deg, #004d40, #00796b); /* Gradient od ciemnozielonego do ciemnoniebieskiego */
+  color: white;
   padding: 20px;
-  border: 1px solid #333;
   border-radius: 10px;
-  background-color: #f3e5f5; /* Jasny fioletowy */
+  margin: 20px auto;
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
 }
 
-h1, h2, h3 {
-  color: #6a1b9a; /* Ciemny fioletowy */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.description {
-  font-size: 1.1em;
-  color: #6a1b9a; /* Ciemny fioletowy */
+.qualification-details-container h1, .qualification-details-container h2 {
+  margin-top: 0;
 }
 
 .skills-list {
-  display: flex;
-  flex-wrap: wrap;
   list-style-type: none;
   padding: 0;
-  gap: 10px; /* Odstęp między elementami */
 }
 
 .skill-item {
-  flex: 1 1 calc(25%); /* 3 elementy w jednej linii, z uwzględnieniem odstępu */
-  box-sizing: border-box;
-  margin: 10px 0;
-  padding: 10px;
-  border: 1px solid #6a1b9a; /* Ciemny fioletowy */
+  background-color: #e0f2f1; /* Jasny zielony */
+  color: #004d40; /* Ciemny zielony */
+  padding: 20px;
   border-radius: 10px;
-  background-color: #e1bee7; /* Jasny fioletowy */
+  margin-bottom: 20px;
+  transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.skill-item:hover {
+  transform: scale(1.02);
+  background-color: #b2dfdb; /* Jaśniejszy zielony */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.skill-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.skill-icon {
+  font-size: 24px;
+  color: #004d40;
 }
 
 .skill-image {
   max-width: 100px;
   display: block;
   margin-top: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill-image:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .skill-links {
@@ -50,10 +85,12 @@ h1, h2, h3 {
 }
 
 .skill-links a {
-  color: blue;
+  color: #004d40;
   text-decoration: underline;
+  transition: color 0.3s;
 }
 
 .skill-links a:hover {
+  color: #00796b;
   text-decoration: none;
 }

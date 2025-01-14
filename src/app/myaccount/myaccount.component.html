@@ -1,0 +1,16 @@
+<div class="my-account-container">
+    <h2>My Account</h2>
+    <p><strong>First Name:</strong> {{ user.firstName }}</p>
+    <p><strong>Last Name:</strong> {{ user.lastName }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Age:</strong> {{ user.age }}</p>
+    <p><strong>Address:</strong> {{ user.address }}</p>
+  
+    <h3>Your Qualifications</h3>
+    <ul>
+      <li *ngFor="let qualification of qualifications">
+        {{ qualification.name }} - {{ qualification.level }}
+        <button (click)="deleteQualification(qualification.id)">Delete</button>
+      </li>
+    </ul>
+  </div>

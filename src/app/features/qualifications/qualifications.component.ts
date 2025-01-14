@@ -14,6 +14,8 @@ import { FormsModule } from '@angular/forms';
 export class QualificationsComponent implements OnInit {
   qualifications: any[] = [];
   newQualification = { name: '', description: '' };
+  searchTerm: string = '';
+  searchBySkill: boolean = false;
   isEditing = false;
   editingQualificationId: number | null = null;
 
@@ -26,6 +28,10 @@ export class QualificationsComponent implements OnInit {
   loadQualifications(): void {
     this.qualificationsService.getQualifications().subscribe(data => {
       this.qualifications = data;
+      this.qualifications.forEach(q => {
+        q.isStarred = false;
+        q.level = '';
+      });
     });
   }
 
@@ -65,5 +71,28 @@ export class QualificationsComponent implements OnInit {
     this.isEditing = false;
     this.editingQualificationId = null;
     this.newQualification = { name: '', description: '' };
+  }
+
+  searchByName(): void {
+    // Implement search by name logic here
+    console.log('Searching by name:', this.searchTerm);
+  }
+
+  toggleSearchMode(): void {
+    this.searchBySkill = !this.searchBySkill;
+    if (this.searchBySkill) {
+      // Implement logic to switch to search by skill
+      console.log('Switched to search by skill');
+    } else {
+      // Implement logic to switch to search by name
+      console.log('Switched to search by name');
+    }
+  }
+
+  toggleStar(qualification: any): void {
+    qualification.isStarred = !qualification.isStarred;
+    if (!qualification.isStarred) {
+      qualification.level = '';
+    }
   }
 }

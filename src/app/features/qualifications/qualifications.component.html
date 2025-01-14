@@ -1,21 +1,58 @@
-<div class="qualifications-container">
-  <div *ngFor="let qualification of qualifications" class="qualification">
-    <h3>{{ qualification.name }}</h3>
-    <p class="description">{{ qualification.description }}</p>
-    <button (click)="showDetails(qualification.id)">Pokaż szczegóły</button>
-    <button (click)="editQualification(qualification)">Edytuj</button>
-    <button (click)="deleteQualification(qualification.id)">Usuń</button>
-  </div>
-</div>
+<div class="main-container">
+  <div class="top-container">
+    <div class="instructions-container container">
+      <h2>Instrukcje</h2>
+      <p>Witaj w naszym systemie rekomendacji!</p>
+      <p>Nasz algorytm pomoże Ci wybrać najlepsze rekomendacje w zależności od Twoich umiejętności.</p> 
+      <p>Wybierz kwalifikacje, które posiadasz, a następnie dodaj nowe umiejętności, które chciałbyś rozwijać.</p>
+      <p> Nasz system zasugeruje Ci najlepsze ścieżki rozwoju.</p>
+      <p>W celu dodania nowej kwalifikacji wypełnij formularz poniżej. 
+        W celu edycji kwalifikacji kliknij przycisk "Edytuj" obok kwalifikacji, którą chcesz zmodyfikować.</p>
+    </div>
 
-<div class="form-container">
-  <h2>{{ isEditing ? 'Edytuj kwalifikację' : 'Dodaj nową kwalifikację' }}</h2>
-  <form (ngSubmit)="isEditing ? updateQualification() : addQualification()">
-    <label for="name">Nazwa:</label>
-    <input id="name" [(ngModel)]="newQualification.name" name="name" required>
-    <label for="description">Opis:</label>
-    <input id="description" [(ngModel)]="newQualification.description" name="description" required>
-    <button type="submit">{{ isEditing ? 'Zaktualizuj' : 'Dodaj' }}</button>
-    <button type="button" *ngIf="isEditing" (click)="cancelEdit()">Anuluj</button>
-  </form>
+    <div class="search-container container">
+      <input type="text" [(ngModel)]="searchTerm" placeholder="Wyszukaj po nazwie" class="search-input">
+      <button (click)="searchByName()" class="search-button">Wyszukaj</button>
+      <button (click)="toggleSearchMode()" class="toggle-search-button">
+        {{ searchBySkill ? 'Wyszukaj po nazwie' : 'Wyszukaj po umiejętnościach' }}
+      </button>
+    </div>
+  </div>
+
+  <div class="qualifications-container container">
+    <div *ngFor="let qualification of qualifications" class="qualification">
+      <h2>{{ qualification.name }}</h2>
+      <p class="description">{{ qualification.description }}</p>
+      <div class="qualification-buttons">
+        <button class="details-button" (click)="showDetails(qualification.id)">Pokaż szczegóły</button>
+        <div class="edit-delete-buttons">
+          <button (click)="editQualification(qualification)">Edytuj</button>
+          <button (click)="deleteQualification(qualification.id)">Usuń</button>
+        </div>
+        <button class="star-button" (click)="toggleStar(qualification)">
+          <i class="material-icons">{{ qualification.isStarred ? 'star' : 'star_border' }}</i>
+        </button>
+        <div *ngIf="qualification.isStarred" class="level-selector">
+          <select [(ngModel)]="qualification.level">
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="expert">Expert</option>
+          </select>
+          <p class="selected-level">Selected level: {{ qualification.level }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-container">
+    <h2>{{ isEditing ? 'Edytuj kwalifikację' : 'Dodaj nową kwalifikację' }}</h2>
+    <form (ngSubmit)="isEditing ? updateQualification() : addQualification()">
+      <label for="name">Nazwa:</label>
+      <input id="name" [(ngModel)]="newQualification.name" name="name" required>
+      <label for="description">Opis:</label>
+      <input id="description" [(ngModel)]="newQualification.description" name="description" required>
+      <button type="submit">{{ isEditing ? 'Zaktualizuj' : 'Dodaj' }}</button>
+      <button type="button" *ngIf="isEditing" (click)="cancelEdit()">Anuluj</button>
+    </form>
+  </div>
 </div>

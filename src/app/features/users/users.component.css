@@ -1,75 +1,116 @@
-div {
+body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+  }
+  
+  .users-container {
+    background: linear-gradient(90deg, #004d40, #00796b); /* Gradient od ciemnozielonego do ciemnoniebieskiego */
+    color: white;
     padding: 20px;
-    border: 1px solid #333;
     border-radius: 10px;
-    background-color: #e0f7ff;
-}
-
-h2, h3 {
-    color: #0056b3;
-}
-
-ul {
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .users-container h2, .users-container h3 {
+    margin-top: 0;
+  }
+  
+  .users-list {
     list-style-type: none;
     padding: 0;
-}
-
-li {
-    background-color: #b3e5fc;
-    margin: 5px 0;
+  }
+  
+  .user-item {
+    background-color: #e0f2f1; /* Jasny zielony */
+    color: #004d40; /* Ciemny zielony */
     padding: 10px;
     border-radius: 5px;
+    margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-button {
-    background-color: #1c68b9;
+    transition: transform 0.3s, background-color 0.3s;
+  }
+  
+  .user-item i {
+    margin-right: 10px;
+  }
+  
+  .user-item:hover {
+    transform: scale(1.02);
+    background-color: #b2dfdb; /* Jaśniejszy zielony */
+  }
+  
+  .delete-button {
+    background-color: #d32f2f; /* Czerwony kolor */
     color: white;
     border: none;
     padding: 5px 10px;
-    text-align: center;
-    width: 20%;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #004494;
-}
-
-form {
-    margin-top: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    color: #0056b3;
-}
-
-input {
+  }
+  
+  .delete-button:hover {
+    background-color: #b71c1c; /* Ciemniejszy czerwony */
+  }
+  
+  .add-user-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .form-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .form-group label {
+    color: white;
+  }
+  
+  .form-group input {
     padding: 5px;
     border: 1px solid #333;
     border-radius: 5px;
     width: 100%;
     box-sizing: border-box;
-    margin-bottom: 10px;
-}
-
-button.active {
-    background-color: rgb(4, 6, 118);
-}
-
-button:not(.active) {
-    background-color: rgb(32, 84, 146);
-}
-
-.add-button {
-    width: 20%;
-    align-self: center;
-}
+  }
+  
+  .form-group button {
+    background-color: #004d40; /* Ciemny zielony */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .form-group button.active {
+    background-color: #00796b; /* Ciemniejszy zielony */
+  }
+  
+  .form-group button:hover {
+    background-color: #00796b; /* Ciemniejszy zielony */
+  }
+  
+  .add-button {
+    background-color: #004d40; /* Ciemny zielony */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .add-button:hover {
+    background-color: #00796b; /* Ciemniejszy zielony */
+  }

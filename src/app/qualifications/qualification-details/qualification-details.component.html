@@ -4,7 +4,10 @@
   <h2>Skills</h2>
   <ul class="skills-list">
     <li *ngFor="let skill of qualification.skills" class="skill-item">
-      <h3>{{ skill.name }}</h3>
+      <div class="skill-header">
+        <h3>{{ skill.name }}</h3>
+        <i class="material-icons skill-icon">build</i>
+      </div>
       <img [src]="skill.imageUrl" alt="{{ skill.name }}" class="skill-image">
       <p>{{ skill.description }}</p>
       <p>Level: {{ skill.level }}</p>

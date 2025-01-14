@@ -1,14 +1,16 @@
-<div>
+<div class="users-container">
   <h2>Users</h2>
-  <ul>
-    <li *ngFor="let user of users">
-      {{ user.name }} ({{ user.role }}) <button (click)="deleteUser(user.id)">Delete</button>
+  <ul class="users-list">
+    <li *ngFor="let user of users" class="user-item">
+      <i class="material-icons">{{ user.isAdmin ? 'admin_panel_settings' : 'person' }}</i>
+      {{ user.name }} ({{ user.role }}) 
+      <button (click)="deleteUser(user.id)" class="delete-button">Delete</button>
     </li>
   </ul>
 
   <h3>Add User</h3>
-  <form (ngSubmit)="addUser()" style="display: flex; flex-direction: column; gap: 10px;">
-    <div style="display: flex; gap: 10px; align-items: center;">
+  <form (ngSubmit)="addUser()" class="add-user-form">
+    <div class="form-group">
       <label for="name">Name:</label>
       <input id="name" [(ngModel)]="newUser.name" name="name" required>
       

@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+  }
+  
+  .register-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: linear-gradient(90deg, #004d40, #00796b); /* Gradient od ciemnozielonego do ciemnoniebieskiego */
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .register-container h2 {
+    margin-top: 0;
+    text-align: center;
+  }
+  
+  .register-container label {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+  }
+  
+  .register-container input {
+    padding: 10px;
+    border: 1px solid #00796b;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+  
+  .register-button {
+    background-color: #004d40;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .register-button:hover {
+    background-color: #00796b;
+  }
+  
+  .success-message {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #4caf50; /* Zielony kolor */
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+  }

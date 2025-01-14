@@ -1,0 +1,14 @@
+<div class="qualification-form-container">
+    <h2>Add/Update Qualification</h2>
+    <form (ngSubmit)="submit()">
+      <label for="qualificationId">Qualification ID:</label>
+      <input id="qualificationId" [(ngModel)]="qualificationId" name="qualificationId" type="number" required>
+      <label for="level">Level:</label>
+      <select id="level" [(ngModel)]="level" name="level" required>
+        <option value="beginner">Beginner</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="expert">Expert</option>
+      </select>
+      <button type="submit" class="submit-button">Submit</button>
+    </form>
+  </div>
