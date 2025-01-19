@@ -1,62 +1,28 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f0f0f0;
-}
-
+/* src/app/login/login.component.css */
 .login-container {
-  max-width: 400px;
-  margin: 50px auto;
+  width: 300px;
+  margin: 0 auto;
   padding: 20px;
-  background: linear-gradient(90deg, #004d40, #00796b); /* Gradient od ciemnozielonego do ciemnoniebieskiego */
-  color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .login-container h2 {
-  margin-top: 0;
   text-align: center;
 }
 
-.login-container label {
-  display: block;
-  margin-bottom: 5px;
-  color: white;
-}
-
-.login-container input {
-  padding: 10px;
-  border: 1px solid #00796b;
-  border-radius: 5px;
-  width: 100%;
-  box-sizing: border-box;
-  margin-bottom: 10px;
-}
-
-.login-button, .register-button {
-  background-color: #004d40;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%;
-  box-sizing: border-box;
-  margin-top: 10px;
-  transition: background-color 0.3s;
-}
-
-.login-button:hover, .register-button:hover {
-  background-color: #00796b;
-}
-
-.error-message {
+.login-container button {
   margin-top: 20px;
   padding: 10px;
-  background-color: #d32f2f; /* Czerwony kolor */
+  width: 100%;
+  background-color: #007bff;
   color: white;
+  border: none;
   border-radius: 5px;
-  text-align: center;
+  cursor: pointer;
+}
+
+.login-container button:hover {
+  background-color: #0056b3;
 }

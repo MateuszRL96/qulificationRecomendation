@@ -1,25 +1,82 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-  }
-  
-  .my-account-container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background: linear-gradient(90deg, #004d40, #00796b); /* Gradient od ciemnozielonego do ciemnoniebieskiego */
-    color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .my-account-container h2 {
-    margin-top: 0;
-    text-align: center;
-  }
-  
-  .my-account-container p {
-    margin: 10px 0;
-  }
+/* src/app/myaccount/myaccount.component.css */
+.my-account-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.my-account-container h2 {
+  text-align: center;
+  color: #333;
+}
+
+.my-account-container p {
+  font-size: 16px;
+  color: #555;
+}
+
+.my-account-container p strong {
+  color: #000;
+}
+
+.my-account-container img {
+  max-width: 100px;
+  border-radius: 50%;
+}
+
+.profile-form-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #e9f7ef; /* Light green background */
+}
+
+.profile-form-container h2 {
+  text-align: center;
+  color: #2e7d32; /* Dark green color */
+}
+
+.profile-form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-form-container form div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.profile-form-container form label {
+  width: 150px;
+  font-size: 14px;
+  color: #2e7d32; /* Dark green color */
+}
+
+.profile-form-container form input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.profile-form-container form button {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #0c430f; /* Dark green background */
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.profile-form-container form button:hover {
+  background-color: #1b5e20; /* Darker green on hover */
+}

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class QualificationsService {
-  private apiUrl = 'http://localhost:8080';
+  private apiUrl = 'api';
 
   constructor(private http: HttpClient) { }
 

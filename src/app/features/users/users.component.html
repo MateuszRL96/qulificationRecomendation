@@ -3,7 +3,7 @@
   <ul class="users-list">
     <li *ngFor="let user of users" class="user-item">
       <i class="material-icons">{{ user.isAdmin ? 'admin_panel_settings' : 'person' }}</i>
-      {{ user.name }} ({{ user.role }}) 
+      {{ user.name }} ({{ user.role }})
       <button (click)="deleteUser(user.id)" class="delete-button">Delete</button>
     </li>
   </ul>
@@ -13,15 +13,15 @@
     <div class="form-group">
       <label for="name">Name:</label>
       <input id="name" [(ngModel)]="newUser.name" name="name" required>
-      
+
       <label for="email">Email:</label>
       <input id="email" [(ngModel)]="newUser.email" name="email" required>
-      
+
       <label>Role:</label>
       <button type="button" (click)="newUser.isAdmin = true" [class.active]="newUser.isAdmin">Admin</button>
       <button type="button" (click)="newUser.isAdmin = false" [class.active]="!newUser.isAdmin">User</button>
     </div>
-    
+
     <button type="submit" class="add-button">Add</button>
   </form>
 </div>

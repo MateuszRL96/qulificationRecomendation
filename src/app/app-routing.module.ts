@@ -11,13 +11,12 @@ import { MyAccountComponent } from './myaccount/myaccount.component';
 
 export const routes: Routes = [
   { path: 'users', component: UsersComponent },
-  { path: 'qualifications', component: QualificationsComponent },
-  { path: 'recommendations', component: RecommendationsComponent },
+  { path: 'qualifications', component: QualificationsComponent},
+  { path: 'recommendations', component: RecommendationsComponent},
   { path: 'about', component: AboutComponent },
   { path: '', redirectTo: '/users', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'my-account', component: MyAccountComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'my-account', component: MyAccountComponent},
+  // { path: 'register', component: RegisterComponent },
   { path: 'qualifications/:id/skills', component: QualificationDetailsComponent }
-
 ];

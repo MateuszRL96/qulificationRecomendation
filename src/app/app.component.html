@@ -3,8 +3,9 @@
   <a routerLink="/qualifications" routerLinkActive="active">Qualifications</a>
   <a routerLink="/recommendations" routerLinkActive="active">Recommendations</a>
   <a routerLink="/about" routerLinkActive="active">About</a>
-  <a routerLink="/login" routerLinkActive="active">Login</a>
+<!--  <a routerLink="/login" routerLinkActive="active">Login</a>-->
   <a routerLink="/my-account" routerLinkActive="active">My Account</a>
-
+  <a (click)="loginWithRedirect()">Log In</a>
 </nav>
+
 <router-outlet></router-outlet>

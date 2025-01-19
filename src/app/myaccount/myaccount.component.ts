@@ -1,47 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import {UsersService} from '../users.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-my-account',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './myaccount.component.html',
   styleUrls: ['./myaccount.component.css']
 })
 export class MyAccountComponent implements OnInit {
   user: any;
-  qualifications: any[] = [];
+  profile: any = {};
 
-  constructor(private http: HttpClient) {}
+  constructor(private usersService: UsersService) {}
 
   ngOnInit(): void {
-    const userData = localStorage.getItem('user');
-    if (userData) {
-      this.user = JSON.parse(userData);
-      this.loadQualifications();
-    }
+    this.usersService.getCurrentUser().subscribe(data => {
+      this.user = data;
+    });
   }
-
-  loadQualifications(): void {
-    this.http.get(`/profile/qualifications?userId=${this.user.id}`).subscribe(
-      (response: any) => {
-        this.qualifications = response;
-      },
-      (error: any) => {
-        console.error('Error loading qualifications', error);
-      }
-    );
-  }
-
-  deleteQualification(qualificationId: number): void {
-    this.http.delete(`/profile/qualifications/${qualificationId}`).subscribe(
-      () => {
-        this.loadQualifications();
-      },
-      (error: any) => {
-        console.error('Error deleting qualification', error);
-      }
-    );
+  createProfile(): void {
+    this.usersService.createUserProfile(this.profile).subscribe(response => {
+      console.log('Profile created successfully', response);
+      // Handle success, e.g., redirect or show a success message
+    }, error => {
+      console.error('Error creating profile', error);
+      // Handle error, e.g., show an error message
+    });
   }
 }
