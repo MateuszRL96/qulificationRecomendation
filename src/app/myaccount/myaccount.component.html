@@ -1,43 +1,60 @@
-<!-- src/app/myaccount/myaccount.component.html -->
-<div class="my-account-container" *ngIf="user">
-  <h2>My Account</h2>
-  <p><strong>ID:</strong> {{ user.id }}</p>
-  <p><strong>Name:</strong> {{ user.name }}</p>
-  <p><strong>Email:</strong> {{ user.email }}</p>
-  <p><strong>Sub:</strong> {{ user.sub }}</p>
-  <p><strong>Picture:</strong> <img *ngIf="user.picture" [src]="user.picture" alt="User Picture"></p>
-  <p><strong>Login Date:</strong> {{ user.loginDate | date:'medium' }}</p>
+
+  <div class="my-account-container" *ngIf="user">
+    <h2>My Account</h2>
+    <p><strong>ID:</strong> {{ user.id }}</p>
+    <p><strong>Name:</strong> {{ user.name }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Sub:</strong> {{ user.sub }}</p>
+    <p><strong>Picture:</strong> <img *ngIf="user.picture" [src]="user.picture" alt="User Picture"></p>
+    <p><strong>Login Date:</strong> {{ user.loginDate | date:'medium' }}</p>
+  </div>
+  <div *ngIf="!showLoginForm; else loginForm">
+  <div class="profile-form-container">
+    <h2>Create Profile</h2>
+    <form (ngSubmit)="createProfile()">
+      <div>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" [(ngModel)]="profile.firstName" name="firstName" required>
+      </div>
+      <div>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" [(ngModel)]="profile.lastName" name="lastName" required>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" [(ngModel)]="profile.email" name="email" required>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" [(ngModel)]="profile.password" name="password" required>
+      </div>
+      <div>
+        <label for="age">Age:</label>
+        <input type="number" id="age" [(ngModel)]="profile.age" name="age" required>
+      </div>
+      <div>
+        <label for="address">Address:</label>
+        <input type="text" id="address" [(ngModel)]="profile.address" name="address" required>
+      </div>
+      <button type="submit">Create Profile</button>
+    </form>
+  </div>
 </div>
 
-<div class="profile-form-container">
-  <h2>Create Profile</h2>
-  <form (ngSubmit)="createProfile()">
-    <div>
-      <label for="firstName">First Name:</label>
-      <input type="text" id="firstName" [(ngModel)]="profile.firstName" name="firstName" required>
-    </div>
-    <div>
-      <label for="lastName">Last Name:</label>
-      <input type="text" id="lastName" [(ngModel)]="profile.lastName" name="lastName" required>
-    </div>
-    <div>
-      <label for="email">Email:</label>
-      <input type="email" id="email" [(ngModel)]="profile.email" name="email" required>
-    </div>
-    <div>
-      <label for="password">Password:</label>
-      <input type="password" id="password" [(ngModel)]="profile.password" name="password" required>
-    </div>
-    <div>
-      <label for="age">Age:</label>
-      <input type="number" id="age" [(ngModel)]="profile.age" name="age" required>
-    </div>
-    <div>
-      <label for="address">Address:</label>
-      <input type="text" id="address" [(ngModel)]="profile.address" name="address" required>
-    </div>
-    <button type="submit">Create Profile</button>
-  </form>
-</div>
-
-
+<ng-template #loginForm>
+  <div class="login-form-container">
+    <h2>Login</h2>
+    <p class="error-message">{{ errorMessage }}</p>
+    <form (ngSubmit)="login()">
+      <div>
+        <label for="loginEmail">Email:</label>
+        <input type="email" id="loginEmail" [(ngModel)]="loginData.email" name="loginEmail" required>
+      </div>
+      <div>
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" [(ngModel)]="loginData.password" name="loginPassword" required>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</ng-template>

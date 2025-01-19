@@ -1,6 +1,8 @@
 /* Dodaj style dla swojej aplikacji */
 body {
   font-family: Arial, sans-serif;
+  background-image: url('../../public/assets/images/background.jpg');
+  background-size: cover;
   margin: 0;
   padding: 0;
   background-color: #f0f0f0;
@@ -51,4 +53,5 @@ nav a:hover {
 nav a.active {
   color: #80cbc4; /* Jasnozielony */
 }
+
 

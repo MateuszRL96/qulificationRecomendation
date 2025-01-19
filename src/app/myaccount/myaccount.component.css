@@ -80,3 +80,62 @@
 .profile-form-container form button:hover {
   background-color: #1b5e20; /* Darker green on hover */
 }
+
+.login-form-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-form-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.login-form-container .error-message {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.login-form-container form {
+  width: 100%;
+  max-width: 300px;
+}
+
+.login-form-container form div {
+  margin-bottom: 10px;
+}
+
+.login-form-container form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #5bb662;
+}
+
+.login-form-container form input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.login-form-container form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #0c430f;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-form-container form button:hover {
+  background-color: #0c430f;
+}
