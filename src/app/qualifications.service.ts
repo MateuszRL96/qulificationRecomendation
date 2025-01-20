@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class QualificationsService {
   private apiUrl = 'api';
+  private secondApiUrl = 'http://localhost:8080/api/user-qualifications/add';
 
   constructor(private http: HttpClient) { }
 
@@ -28,5 +29,15 @@ export class QualificationsService {
 
   getQualificationDetails(id: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/qualifications/${id}/skills`);
+  }
+
+  // Method using the second API URL
+  addUserQualification(qualification: any): Observable<any> {
+    const payload = {
+      userId: 1,
+      qualificationId: qualification.id,
+      level: qualification.level
+    };
+    return this.http.post<any>(this.secondApiUrl, payload);
   }
 }

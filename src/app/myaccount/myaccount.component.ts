@@ -21,16 +21,16 @@ export class MyAccountComponent implements OnInit {
   constructor(private usersService: UsersService) {}
 
   ngOnInit(): void {
-    this.usersService.getCurrentUser().subscribe(data => {
+    this.usersService.getCurrentUser().subscribe((data: any) => {
       this.user = data;
     });
   }
 
   createProfile(): void {
-    this.usersService.createUserProfile(this.profile).subscribe(response => {
+    this.usersService.createUserProfile(this.profile).subscribe((response: any) => {
       console.log('Profile created successfully', response);
       // Handle success, e.g., redirect or show a success message
-    }, error => {
+    }, (error: any) => {
       if (error.status === 409) {
         this.errorMessage = 'User with this email already exists';
         this.showLoginForm = true;

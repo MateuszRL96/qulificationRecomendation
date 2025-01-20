@@ -95,4 +95,22 @@ export class QualificationsComponent implements OnInit {
       qualification.level = '';
     }
   }
+
+  addQualificationToUser(qualification: any): void {
+    if (!qualification.level) {
+      qualification.errorMessage = 'Wybierz poziom znajomości';
+      return;
+    }
+    qualification.errorMessage = '';
+    qualification.userId = this.getCurrentUserId(); // Upewnij się, że ta metoda zwraca ID aktualnego użytkownika
+    this.qualificationsService.addUserQualification(qualification).subscribe(response => {
+      console.log('Qualification added to user:', response);
+    }, error => {
+      console.error('Error adding qualification to user:', error);
+    });
+  }
+
+  getCurrentUserId(): number {
+    return 1; // Przykładowe ID użytkownika, zamień na rzeczywistą logikę
+  }
 }

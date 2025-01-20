@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class UsersService {
   private apiUrl = '/api';
-  private createProfileApiUrl = 'http://localhost:8080/api/user-details/add'; // Updated API URL for create profile
+  private employerDetailsUrl = 'http://localhost:8080/api/employer-details/all';
 
   constructor(private http: HttpClient) { }
 
@@ -24,16 +24,9 @@ export class UsersService {
     );
   }
 
-  addUser(user: any): Observable<any> {
+  getEmployerDetails(): Observable<any[]> {
     const headers = this.getAuthHeaders();
-    return this.http.post(this.apiUrl, user, { headers }).pipe(
-      catchError(this.handleError)
-    );
-  }
-
-  deleteUser(userId: number): Observable<any> {
-    const headers = this.getAuthHeaders();
-    return this.http.delete(`${this.apiUrl}/${userId}`, { headers }).pipe(
+    return this.http.get<any[]>(this.employerDetailsUrl, { headers }).pipe(
       catchError(this.handleError)
     );
   }
@@ -47,7 +40,7 @@ export class UsersService {
 
   createUserProfile(profile: any): Observable<any> {
     const headers = this.getAuthHeaders();
-    return this.http.post<any>(this.createProfileApiUrl, profile, { headers }).pipe(
+    return this.http.post<any>(`${this.apiUrl}/user-details/add`, profile, { headers }).pipe(
       catchError(this.handleError)
     );
   }

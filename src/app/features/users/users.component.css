@@ -1,116 +1,36 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-  }
-  
-  .users-container {
-    background: linear-gradient(90deg, #004d40, #00796b); /* Gradient od ciemnozielonego do ciemnoniebieskiego */
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px auto;
-    max-width: 800px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .users-container h2, .users-container h3 {
-    margin-top: 0;
-  }
-  
-  .users-list {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .user-item {
-    background-color: #e0f2f1; /* Jasny zielony */
-    color: #004d40; /* Ciemny zielony */
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: transform 0.3s, background-color 0.3s;
-  }
-  
-  .user-item i {
-    margin-right: 10px;
-  }
-  
-  .user-item:hover {
-    transform: scale(1.02);
-    background-color: #b2dfdb; /* Jaśniejszy zielony */
-  }
-  
-  .delete-button {
-    background-color: #d32f2f; /* Czerwony kolor */
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .delete-button:hover {
-    background-color: #b71c1c; /* Ciemniejszy czerwony */
-  }
-  
-  .add-user-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .form-group {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
-  
-  .form-group label {
-    color: white;
-  }
-  
-  .form-group input {
-    padding: 5px;
-    border: 1px solid #333;
-    border-radius: 5px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  .form-group button {
-    background-color: #004d40; /* Ciemny zielony */
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .form-group button.active {
-    background-color: #00796b; /* Ciemniejszy zielony */
-  }
-  
-  .form-group button:hover {
-    background-color: #00796b; /* Ciemniejszy zielony */
-  }
-  
-  .add-button {
-    background-color: #004d40; /* Ciemny zielony */
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .add-button:hover {
-    background-color: #00796b; /* Ciemniejszy zielony */
-  }
+.users-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  /*background-color: #2e2e2e; !* Dark background *!*/
+  border-radius: 10px;
+}
+
+.user-row {
+  display: flex;
+  align-items: center;
+  width: 60%;
+  padding: 15px;
+  border: 1px solid #0c430f; /* Dark green border */
+  border-radius: 5px;
+  background-color: #3e3e3e; /* Slightly lighter dark background */
+  color: white;
+}
+
+.user-icon {
+  margin-right: 10px;
+}
+
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.user-field {
+  flex: 1;
+  text-align: left;
+}

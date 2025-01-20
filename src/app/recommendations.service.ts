@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class RecommendationsService {
   private apiUrl = '/api/recommendations';
+  private userQualificationsUrl = 'http://localhost:8080/api/user-qualifications/user';
 
   constructor(private http: HttpClient) { }
 
@@ -20,5 +21,9 @@ export class RecommendationsService {
 
   deleteRecommendation(recommendationId: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${recommendationId}`);
+  }
+
+  getUserQualifications(userId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.userQualificationsUrl}/${userId}`);
   }
 }

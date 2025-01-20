@@ -1,27 +1,11 @@
 <div class="users-container">
-  <h2>Users</h2>
-  <ul class="users-list">
-    <li *ngFor="let user of users" class="user-item">
-      <i class="material-icons">{{ user.isAdmin ? 'admin_panel_settings' : 'person' }}</i>
-      {{ user.name }} ({{ user.role }})
-      <button (click)="deleteUser(user.id)" class="delete-button">Delete</button>
-    </li>
-  </ul>
-
-  <h3>Add User</h3>
-  <form (ngSubmit)="addUser()" class="add-user-form">
-    <div class="form-group">
-      <label for="name">Name:</label>
-      <input id="name" [(ngModel)]="newUser.name" name="name" required>
-
-      <label for="email">Email:</label>
-      <input id="email" [(ngModel)]="newUser.email" name="email" required>
-
-      <label>Role:</label>
-      <button type="button" (click)="newUser.isAdmin = true" [class.active]="newUser.isAdmin">Admin</button>
-      <button type="button" (click)="newUser.isAdmin = false" [class.active]="!newUser.isAdmin">User</button>
-    </div>
-
-    <button type="submit" class="add-button">Add</button>
-  </form>
+  <div *ngFor="let user of users" class="user-row">
+    <span class="user-icon">👤</span>
+    <span class="user-info">
+      <span class="user-field">Name: {{ user.firstName }}</span>
+      <span class="user-field">Age: {{ user.age }}</span>
+      <span class="user-field">Profession: {{ user.profession }}</span>
+      <span class="user-field">Years of Experience: {{ user.yearsOfExperience }}</span>
+    </span>
+  </div>
 </div>

@@ -12,17 +12,39 @@ import { FormsModule } from '@angular/forms';
 })
 export class RecommendationsComponent implements OnInit {
   recommendations: any[] = [];
+  userQualifications: any[] = [];
   newRecommendation: any = {};
+  userId: number = 1; // Standard user ID
+
+  mapLevel(level: number): string {
+    switch (level) {
+      case 1:
+        return 'Beginner';
+      case 2:
+        return 'Intermediate';
+      case 3:
+        return 'Expert';
+      default:
+        return 'Unknown';
+    }
+  }
 
   constructor(private recommendationsService: RecommendationsService) { }
 
   ngOnInit(): void {
     this.loadRecommendations();
+    this.loadUserQualifications();
   }
 
   loadRecommendations(): void {
     this.recommendationsService.getRecommendations().subscribe(data => {
       this.recommendations = data;
+    });
+  }
+
+  loadUserQualifications(): void {
+    this.recommendationsService.getUserQualifications(this.userId).subscribe(data => {
+      this.userQualifications = data;
     });
   }
 
@@ -37,5 +59,10 @@ export class RecommendationsComponent implements OnInit {
     this.recommendationsService.deleteRecommendation(recommendationId).subscribe(() => {
       this.loadRecommendations();
     });
+  }
+
+  createProfessionalRecommendation(): void {
+    // Logic to create a professional recommendation
+    console.log('Professional recommendation created');
   }
 }

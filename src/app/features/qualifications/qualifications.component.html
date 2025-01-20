@@ -3,10 +3,10 @@
     <div class="instructions-container container">
       <h2>Instrukcje</h2>
       <p>Witaj w naszym systemie rekomendacji!</p>
-      <p>Nasz algorytm pomoże Ci wybrać najlepsze rekomendacje w zależności od Twoich umiejętności.</p> 
+      <p>Nasz algorytm pomoże Ci wybrać najlepsze rekomendacje w zależności od Twoich umiejętności.</p>
       <p>Wybierz kwalifikacje, które posiadasz, a następnie dodaj nowe umiejętności, które chciałbyś rozwijać.</p>
       <p> Nasz system zasugeruje Ci najlepsze ścieżki rozwoju.</p>
-      <p>W celu dodania nowej kwalifikacji wypełnij formularz poniżej. 
+      <p>W celu dodania nowej kwalifikacji wypełnij formularz poniżej.
         W celu edycji kwalifikacji kliknij przycisk "Edytuj" obok kwalifikacji, którą chcesz zmodyfikować.</p>
     </div>
 
@@ -26,7 +26,7 @@
       <div class="qualification-buttons">
         <button class="details-button" (click)="showDetails(qualification.id)">Pokaż szczegóły</button>
         <div class="edit-delete-buttons">
-          <button (click)="editQualification(qualification)">Edytuj</button>
+          <button (click)="addQualificationToUser(qualification)">Add</button>
           <button (click)="deleteQualification(qualification.id)">Usuń</button>
         </div>
         <button class="star-button" (click)="toggleStar(qualification)">
@@ -40,6 +40,7 @@
           </select>
           <p class="selected-level">Selected level: {{ qualification.level }}</p>
         </div>
+        <p *ngIf="qualification.errorMessage" class="error-message">{{ qualification.errorMessage }}</p>
       </div>
     </div>
   </div>
@@ -55,4 +56,8 @@
       <button type="button" *ngIf="isEditing" (click)="cancelEdit()">Anuluj</button>
     </form>
   </div>
+
+  <!-- Existing content -->
 </div>
+
+

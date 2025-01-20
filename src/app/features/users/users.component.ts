@@ -12,36 +12,12 @@ import { FormsModule } from '@angular/forms';
 })
 export class UsersComponent implements OnInit {
   users: any[] = [];
-  newUser = { name: '', email: '', isAdmin: false };
 
   constructor(private usersService: UsersService) { }
 
   ngOnInit(): void {
-    this.loadUsers();
-  }
-
-  loadUsers(): void {
-    this.usersService.getUsers().subscribe(data => {
+    this.usersService.getEmployerDetails().subscribe(data => {
       this.users = data;
-    });
-  }
-
-  addUser() {
-    const userToAdd = {
-      name: this.newUser.name,
-      email: this.newUser.email,
-      role: this.newUser.isAdmin ? 'admin' : 'user'
-    };
-
-    this.usersService.addUser(userToAdd).subscribe(user => {
-      this.users.push(user);
-      this.newUser = { name: '', email: '', isAdmin: false };
-    });
-  }
-
-  deleteUser(userId: number): void {
-    this.usersService.deleteUser(userId).subscribe(() => {
-      this.loadUsers();
     });
   }
 }

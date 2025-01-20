@@ -24,4 +24,16 @@ export class QualificationDetailsComponent implements OnInit {
       this.qualification = data;
     });
   }
+
+  addQualificationToUser(): void {
+    if (this.qualification) {
+      this.qualificationsService.addUserQualification(this.qualification).subscribe(response => {
+        console.log('Qualification added to user:', response);
+        // Handle success, e.g., show a message or update the UI
+      }, error => {
+        console.error('Error adding qualification to user:', error);
+        // Handle error, e.g., show an error message
+      });
+    }
+  }
 }

@@ -6,7 +6,7 @@ body {
 }
 
 .main-container {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   background: linear-gradient(90deg, #004d40, #00796b); /* Gradient od ciemnozielonego do ciemnoniebieskiego */
@@ -71,7 +71,7 @@ body {
   border-radius: 10px;
   background-color: #6ec7c2; /* Jasny zielony */
   box-sizing: border-box;
-  height: 300px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -84,6 +84,7 @@ body {
 .qualification p.description {
   font-size: 0.9em; /* Mniejsza czcionka dla opisu */
   color: #00796b; /* Ciemny zielony */
+  height: 100px;
 }
 
 .qualification-buttons {
@@ -143,7 +144,6 @@ body {
   color: #ffeb3b; /* Żółty kolor dla gwiazdki */
   cursor: pointer;
   font-size: 24px;
-  align-self: flex-end;
 }
 
 .star-button:hover {
@@ -155,11 +155,11 @@ body {
 }
 
 .level-selector select {
-  padding: 5px;
   border: 1px solid #00796b;
   border-radius: 5px;
   width: 100%;
   box-sizing: border-box;
+  text-align: center;
 }
 
 .selected-level {
@@ -190,4 +190,9 @@ input {
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 10px;
+}
+.error-message {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
 }

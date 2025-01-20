@@ -4,7 +4,7 @@ body {
     padding: 0;
     background-color: #f0f0f0;
   }
-  
+
   .about-container {
     background: linear-gradient(90deg, #004d40, #00796b); /* Gradient od ciemnozielonego do ciemnoniebieskiego */
     color: white;
@@ -15,7 +15,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     animation: fadeIn 1s ease-in-out;
   }
-  
+
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -24,16 +24,16 @@ body {
       opacity: 1;
     }
   }
-  
+
   .about-container h1, .about-container h2 {
     margin-top: 0;
   }
-  
+
   .about-container ul {
     list-style-type: none;
     padding: 0;
   }
-  
+
   .about-container ul li {
     background-color: #e0f2f1; /* Jasny zielony */
     color: #004d40; /* Ciemny zielony */
@@ -43,28 +43,25 @@ body {
     transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
-  
+
   .about-container ul li:hover {
     transform: scale(1.02);
     background-color: #b2dfdb; /* Jaśniejszy zielony */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
-  
   .gallery {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-  }
-  
-  .gallery img {
     width: 100%;
-    max-width: 200px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    margin: 20px auto; /* Center the gallery */
+    display: flex;
+    gap: 10px; /* Space between images */
+    height:15%;
   }
-  
-  .gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+  .gallery img {
+    width: 100%; /* Images occupy full width */
+    border-radius: 5px; /* Optional: add border radius */
   }
+  #myChart {
+    text-decoration: underline;
+  }
+
