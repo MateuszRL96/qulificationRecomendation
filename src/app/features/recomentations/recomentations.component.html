@@ -1,45 +1,79 @@
 <div class="main-container">
-  <div class="note-container">
-    <h2>How Our Recommendation Application Works</h2>
-    <p>
-      Nasza aplikacja to innowacyjne narzędzie, które pozwala użytkownikom na skuteczne zaplanowanie swojej kariery zawodowej w oparciu o ich kwalifikacje i umiejętności.
-      Proces korzystania z aplikacji jest intuicyjny i został zaprojektowany z myślą o komforcie użytkownika.
-    </p>
-    <p>
-      Pierwszym krokiem w korzystaniu z aplikacji jest proces autoryzacji za pomocą platformy Auth0.
-      Użytkownik musi się zalogować, co zapewnia bezpieczeństwo oraz możliwość indywidualnego dostosowania funkcji aplikacji do konkretnej osoby.
-      Dzięki temu każdy użytkownik ma dostęp do swoich danych w sposób bezpieczny i prywatny.  </p>
-    <p>
-      Po zalogowaniu się, użytkownik jest proszony o stworzenie swojego konta w aplikacji.
-      Ten etap jest kluczowy, ponieważ profil użytkownika jest podstawą do generowania spersonalizowanej ścieżki kariery.
-      Podczas zakładania konta należy wprowadzić szczegółowe informacje dotyczące posiadanych kwalifikacji zawodowych oraz określić poziom znajomości każdej z nich.
-      Przykładowe kwalifikacje mogą obejmować znajomość języków programowania, kompetencje językowe, zarządzanie projektami, czy inne specjalistyczne umiejętności.  </p>
-    <p>
-      Aby aplikacja mogła wygenerować optymalną ścieżkę kariery, kluczowe jest, aby dane w profilu użytkownika były kompletne, poprawne i aktualne.
-      Każda informacja, taka jak poziom znajomości danej umiejętności, wpływa na rezultaty, które aplikacja przedstawi użytkownikowi.
-      Dlatego zachęcamy użytkowników do szczegółowego wypełnienia swojego profilu.  </p>
-    <p>
-      Po zakończeniu procesu tworzenia profilu i uzupełnieniu wszystkich niezbędnych danych, użytkownik może przejść do głównej funkcji aplikacji – generowania ścieżki kariery.
-      Wystarczy kliknąć przycisk „Utwórz ścieżkę kariery”, a aplikacja automatycznie przeanalizuje wszystkie wprowadzone informacje,
-      takie jak kwalifikacje, poziom znajomości umiejętności oraz potencjalne cele zawodowe.
+  <div *ngIf="!showCareerPath" class="left-container">
+    <div class="note-container">
+      <h2>How Our Recommendation Application Works</h2>
+      <p>
+        Nasza aplikacja to innowacyjne narzędzie, które pozwala użytkownikom na skuteczne zaplanowanie swojej kariery zawodowej w oparciu o ich kwalifikacje i umiejętności.
+        Proces korzystania z aplikacji jest intuicyjny i został zaprojektowany z myślą o komforcie użytkownika.
+      </p>
+      <p>
+        Pierwszym krokiem w korzystaniu z aplikacji jest proces autoryzacji za pomocą platformy Auth0.
+        Użytkownik musi się zalogować, co zapewnia bezpieczeństwo oraz możliwość indywidualnego dostosowania funkcji aplikacji do konkretnej osoby.
+        Dzięki temu każdy użytkownik ma dostęp do swoich danych w sposób bezpieczny i prywatny.  </p>
+      <p>
+        Po zalogowaniu się, użytkownik jest proszony o stworzenie swojego konta w aplikacji.
+        Ten etap jest kluczowy, ponieważ profil użytkownika jest podstawą do generowania spersonalizowanej ścieżki kariery.
+        Podczas zakładania konta należy wprowadzić szczegółowe informacje dotyczące posiadanych kwalifikacji zawodowych oraz określić poziom znajomości każdej z nich.
+        Przykładowe kwalifikacje mogą obejmować znajomość języków programowania, kompetencje językowe, zarządzanie projektami, czy inne specjalistyczne umiejętności.  </p>
+      <p>
+        Aby aplikacja mogła wygenerować optymalną ścieżkę kariery, kluczowe jest, aby dane w profilu użytkownika były kompletne, poprawne i aktualne.
+        Każda informacja, taka jak poziom znajomości danej umiejętności, wpływa na rezultaty, które aplikacja przedstawi użytkownikowi.
+        Dlatego zachęcamy użytkowników do szczegółowego wypełnienia swojego profilu.  </p>
+      <p>
+        Po zakończeniu procesu tworzenia profilu i uzupełnieniu wszystkich niezbędnych danych, użytkownik może przejść do głównej funkcji aplikacji – generowania ścieżki kariery.
+        Wystarczy kliknąć przycisk „Utwórz ścieżkę kariery”, a aplikacja automatycznie przeanalizuje wszystkie wprowadzone informacje,
+        takie jak kwalifikacje, poziom znajomości umiejętności oraz potencjalne cele zawodowe.
 
-      Algorytmy aplikacji przetwarzają te dane, wykorzystując zaawansowane metody analizy, aby zaproponować najbardziej optymalną i spersonalizowaną ścieżkę rozwoju kariery.
-      Wygenerowana ścieżka uwzględnia nie tylko obecne kwalifikacje użytkownika, ale także wskazuje obszary, które można rozwinąć, aby osiągnąć określone cele zawodowe.
-      Może to obejmować rekomendacje dotyczące zdobycia nowych certyfikatów, szkoleń, doświadczenia zawodowego, a także konkretne stanowiska lub branże,
-      w których użytkownik ma największe szanse na sukces.  </p>
+        Algorytmy aplikacji przetwarzają te dane, wykorzystując zaawansowane metody analizy, aby zaproponować najbardziej optymalną i spersonalizowaną ścieżkę rozwoju kariery.
+        Wygenerowana ścieżka uwzględnia nie tylko obecne kwalifikacje użytkownika, ale także wskazuje obszary, które można rozwinąć, aby osiągnąć określone cele zawodowe.
+        Może to obejmować rekomendacje dotyczące zdobycia nowych certyfikatów, szkoleń, doświadczenia zawodowego, a także konkretne stanowiska lub branże,
+        w których użytkownik ma największe szanse na sukces.  </p>
+    </div>
+
+    <div *ngIf="recommendedJob" class="recommended-job">
+      <h3>Recommended Job:</h3>
+      <p>{{ recommendedJob }}</p>
+      <button class="small-button" (click)="checkImprovements()">Sprawdź co musisz poprawić</button>
+    </div>
   </div>
 
-  <div class="recommendation-container">
+  <div class="career-path-container" *ngIf="recommendedJob && showCareerPath">
+    <h2>Your Qualifications</h2>
+    <div class="qualification-list">
+      <div *ngFor="let qualification of userQualifications" class="qualification-item2">
+        <strong>{{ qualification.name }}</strong>
+        <span class="level">{{ mapLevel(qualification.level) }}</span>
+      </div>
+    </div>
+
+    <h2>Job Qualifications for {{ recommendedJob }}</h2>
+    <div class="qualification-list">
+      <div *ngFor="let qualification of jobQualifications" [ngClass]="{
+    'qualification-item3': true,
+    'match-exact': qualification.match === 'exact',
+    'match-partial': qualification.match === 'partial'
+  }">
+        <strong>{{ qualification.name }}</strong>
+        <span class="level">{{ mapLevel(qualification.level) }}</span>
+        <span *ngIf="qualification.match === 'exact'" class="match-icon">✅</span> <!-- Green checkmark -->
+      </div>
+
+    </div>
+    <button class="small-button" (click)="refreshPage()">Back</button>
+  </div>
+
+  <div class="recommendation-container" *ngIf="!showCareerPath">
     <h2>User Qualifications</h2>
     <ul>
       <li *ngFor="let qualification of userQualifications">
         <div class="qualification-item">
           <strong>{{ qualification.name }}</strong>
-          <p>{{ qualification.description }}</p>
+          <!--          <p>{{ qualification.description }}</p>-->
           <span class="level">{{ mapLevel(qualification.level) }}</span>
+          <button class="small-button" (click)="deleteQualification(qualification.id)">Delete</button>
         </div>
       </li>
     </ul>
-    <button (click)="createProfessionalRecommendation()">Create Professional Recommendation</button>
+    <button class="small-button" (click)="createProfessionalRecommendation()">Create Professional Recommendation</button>
   </div>
 </div>

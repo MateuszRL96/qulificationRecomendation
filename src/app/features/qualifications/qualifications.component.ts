@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { QualificationsService } from '../../qualifications.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-qualifications',
@@ -18,6 +19,7 @@ export class QualificationsComponent implements OnInit {
   searchBySkill: boolean = false;
   isEditing = false;
   editingQualificationId: number | null = null;
+  successMessage: string = '';
 
   constructor(private qualificationsService: QualificationsService, private router: Router) { }
 
@@ -74,17 +76,33 @@ export class QualificationsComponent implements OnInit {
   }
 
   searchByName(): void {
-    // Implement search by name logic here
-    console.log('Searching by name:', this.searchTerm);
+    const searchTerm = this.searchTerm.trim();
+    if (!searchTerm) {
+      this.loadQualifications();
+      return;
+    }
+
+    this.qualificationsService.searchQualificationsByName(searchTerm).subscribe((ids) => {
+      if (ids.length > 0) {
+        const qualificationsObservables = ids.map(id => this.qualificationsService.getQualificationDetails(id));
+        forkJoin(qualificationsObservables).subscribe((data) => {
+          this.qualifications = data;
+        }, (error) => {
+          console.error('Error fetching qualification details', error);
+        });
+      } else {
+        this.qualifications = [];
+      }
+    }, (error) => {
+      console.error('Error searching qualifications', error);
+    });
   }
 
   toggleSearchMode(): void {
     this.searchBySkill = !this.searchBySkill;
     if (this.searchBySkill) {
-      // Implement logic to switch to search by skill
       console.log('Switched to search by skill');
     } else {
-      // Implement logic to switch to search by name
       console.log('Switched to search by name');
     }
   }
@@ -102,15 +120,20 @@ export class QualificationsComponent implements OnInit {
       return;
     }
     qualification.errorMessage = '';
-    qualification.userId = this.getCurrentUserId(); // Upewnij się, że ta metoda zwraca ID aktualnego użytkownika
+    qualification.userId = this.getCurrentUserId();
     this.qualificationsService.addUserQualification(qualification).subscribe(response => {
       console.log('Qualification added to user:', response);
+      this.successMessage = `Kwalifikacja ${qualification.name} została dodana do panelu rekomendacji.`;
+      this.qualifications = this.qualifications.filter(q => q.id !== qualification.id);
+      setTimeout(() => {
+        this.successMessage = '';
+      }, 3000);
     }, error => {
       console.error('Error adding qualification to user:', error);
     });
   }
 
   getCurrentUserId(): number {
-    return 1; // Przykładowe ID użytkownika, zamień na rzeczywistą logikę
+    return 1;
   }
 }

@@ -9,7 +9,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  background: linear-gradient(90deg, #004d40, #00796b); /* Gradient od ciemnozielonego do ciemnoniebieskiego */
+  background: linear-gradient(90deg, #004d40, #00796b);
   color: white;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -59,22 +59,23 @@ body {
 .qualifications-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin: 20px 0;
+  /*justify-content: space-between;*/
+  width: 90%;
+  margin: 20px auto;
 }
 
 .qualification {
-  position: relative; /* Dodaj pozycję względną */
-  width: 24%; /* Zwiększ szerokość elementów */
-  padding: 10px;
-  border: 1px solid #00796b; /* Ciemny zielony */
+  position: relative;
+  width: 12%;
+  padding: 15px;
+  border: 1px solid #00796b;
   border-radius: 10px;
-  background-color: #6ec7c2; /* Jasny zielony */
+  background-color: #6ec7c2;
   box-sizing: border-box;
   height: 400px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  margin: 15px;
 }
 
 .qualification p {
@@ -82,72 +83,72 @@ body {
 }
 
 .qualification p.description {
-  font-size: 0.9em; /* Mniejsza czcionka dla opisu */
-  color: #00796b; /* Ciemny zielony */
+  font-size: 0.9em;
+  color: #00796b;
   height: 100px;
 }
 
 .qualification-buttons {
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Odstęp między przyciskami */
+  gap: 10px;
 }
 
 .details-button {
-  background-color: #004d40; /* Ciemny zielony */
+  background-color: #004d40;
   color: white;
-  border: none; /* Usuń ramkę */
+  border: none;
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
-  height: 40px; /* Stała wysokość przycisków */
+  height: 40px;
 }
 
 .details-button:hover {
-  background-color: #00796b; /* Ciemniejszy zielony */
+  background-color: #00796b;
 }
 
 .edit-delete-buttons {
   display: flex;
   justify-content: space-between;
-  gap: 10px; /* Odstęp między przyciskami */
+  gap: 10px;
 }
 
 .edit-delete-buttons button {
-  background-color: #004d40; /* Ciemny zielony */
+  background-color: #004d40;
   color: white;
-  border: none; /* Usuń ramkę */
+  border: none;
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
-  height: 40px; /* Stała wysokość przycisków */
-  flex: 1; /* Równa szerokość przycisków */
+  height: 40px;
+  flex: 1;
 }
 
 .edit-delete-buttons button:last-of-type {
-  background-color: #d32f2f; /* Czerwony kolor dla przycisku Usuń */
+  background-color: #d32f2f;
 }
 
 .edit-delete-buttons button:last-of-type:hover {
-  background-color: #b71c1c; /* Ciemniejszy czerwony kolor przy hover */
+  background-color: #b71c1c;
 }
 
 .edit-delete-buttons button:hover {
-  background-color: #00796b; /* Ciemniejszy zielony */
+  background-color: #00796b;
 }
 
 .star-button {
   background-color: transparent;
   border: none;
-  color: #ffeb3b; /* Żółty kolor dla gwiazdki */
+  color: #ffeb3b;
   cursor: pointer;
   font-size: 24px;
 }
 
 .star-button:hover {
-  color: #ffc107; /* Jaśniejszy żółty kolor przy hover */
+  color: #ffc107;
 }
 
 .level-selector {
@@ -168,19 +169,50 @@ body {
 }
 
 .form-container {
-  width: 35%; /* Ustaw szerokość kontenera na 35% */
+  width: 35%;
   margin: 20px auto;
   padding: 20px;
-  border: 1px solid #00796b; /* Ciemny zielony */
+  border: 1px solid #00796b;
   border-radius: 10px;
-  background-color: #e0f2f1; /* Jasny zielony */
+  background-color: #e0f2f1;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 label {
   display: block;
   margin-bottom: 5px;
-  color: #00796b; /* Ciemny zielony */
+  color: #00796b;
+}
+
+.level-info {
+  position: absolute;
+  top: 59px;
+  left: 53px;
+  background-color: #e0f7fa;
+  color: #00796b;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+  width: 12%;
+}
+
+@media (max-width: 1835px) {
+  .level-info {
+    display: none;
+  }
+}
+
+.level-info h3 {
+  margin-top: 0;
+}
+
+.level-info ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.level-info li {
+  margin: 5px 0;
 }
 
 input {
@@ -191,8 +223,18 @@ input {
   box-sizing: border-box;
   margin-bottom: 10px;
 }
+
 .error-message {
   color: red;
   font-size: 0.9em;
   margin-top: 5px;
+}
+
+.success-message {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0;
+  text-align: center;
 }

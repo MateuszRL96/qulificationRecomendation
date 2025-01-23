@@ -1,9 +1,9 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #e8f5e9;
-  color: #0c430f;
-  margin: 0;
-  padding: 0;
+.career-path-container {
+  padding: 20px;
+  background-color: #a5d6a7;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Set to full width */
 }
 
 .main-container {
@@ -17,9 +17,14 @@ body {
   background-color: #a5d6a7;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+.qualification-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 
 .note-container {
-  width: 50%;
+  width: 90%;
   padding: 20px;
   background: #a5d6a7;
   border-radius: 10px;
@@ -27,7 +32,7 @@ body {
 }
 
 .recommendation-container {
-  width: 40%;
+  width: 36%;
   padding: 20px;
   background: #a5d6a7;
   border-radius: 10px;
@@ -52,7 +57,7 @@ ul {
 }
 
 li {
-  width: 45%; /*28% to 3 */
+  width: 27%; /*28% to 3 */
   margin: 5px 0;
   padding: 10px;
   border-radius: 5px;
@@ -72,6 +77,29 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.qualification-item2 {
+  background-color: #5bb662;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 200px; /* Fixed width */
+  height: 50px; /* Fixed height */
+  display: flex;
+  align-items: center; /* Align items in the center vertically */
+  justify-content: space-between; /* Distribute space between items */
+}
+.qualification-item3 {
+  background-color: #e81111;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 200px; /* Fixed width */
+  height: 50px; /* Fixed height */
+  display: flex;
+  align-items: center; /* Align items in the center vertically */
+  justify-content: space-between; /* Distribute space between items */
 }
 
 .qualification-item:hover {
@@ -130,4 +158,30 @@ input {
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 10px;
+}
+.small-button {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.left-container{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.match-exact {
+  background-color: #022b05;
+  color: white;
+}
+
+.match-partial {
+  background-color: #285103;
+  color: white;
+}
+
+.match-icon {
+  margin-left: 10px;
+  color: green;
+  font-size: 1.2em;
 }

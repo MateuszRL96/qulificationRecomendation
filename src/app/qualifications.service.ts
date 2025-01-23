@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Observable, of} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -39,5 +39,15 @@ export class QualificationsService {
       level: qualification.level
     };
     return this.http.post<any>(this.secondApiUrl, payload);
+  }
+
+  // New method to search qualifications by name
+  searchQualificationsByName(name: string): Observable<number[]> {
+    return this.http.get<number[]>(`${this.apiUrl}/qualifications/search?name=${name}`);
+  }
+
+  // New method to fetch qualification by ID
+  fetchQualificationById(id: number): Observable<number> {
+    return of(id);
   }
 }

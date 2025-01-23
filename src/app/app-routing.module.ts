@@ -7,12 +7,14 @@ import { QualificationDetailsComponent } from './qualifications/qualification-de
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { MyAccountComponent } from './myaccount/myaccount.component';
+import {CareerPathComponent} from './features/recomentations/career-path/career-path.component';
 
 
 export const routes: Routes = [
   { path: 'users', component: UsersComponent },
   { path: 'qualifications', component: QualificationsComponent},
   { path: 'recommendations', component: RecommendationsComponent},
+  { path: 'recommendations/career-path', component: CareerPathComponent },
   { path: 'about', component: AboutComponent },
   { path: '', redirectTo: '/users', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },

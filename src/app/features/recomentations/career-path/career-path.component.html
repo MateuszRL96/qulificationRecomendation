@@ -1,0 +1,17 @@
+<div class="career-path-container">
+  <h2>User Qualifications</h2>
+  <div class="qualification-list">
+    <div *ngFor="let qualification of userQualifications" class="qualification-item">
+      <strong>{{ qualification.name }}</strong>
+      <span class="level">{{ mapLevel(qualification.level) }}</span>
+    </div>
+  </div>
+
+  <h2>Job Qualifications for {{ recommendedJob }}</h2>
+  <div class="qualification-list">
+    <div *ngFor="let qualification of jobQualifications" class="qualification-item">
+      <strong>{{ qualification[0] }}</strong>
+      <span class="level">{{ mapLevel(qualification[1]) }}</span>
+    </div>
+  </div>
+</div>

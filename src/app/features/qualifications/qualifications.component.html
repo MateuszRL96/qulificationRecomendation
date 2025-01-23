@@ -5,9 +5,9 @@
       <p>Witaj w naszym systemie rekomendacji!</p>
       <p>Nasz algorytm pomoże Ci wybrać najlepsze rekomendacje w zależności od Twoich umiejętności.</p>
       <p>Wybierz kwalifikacje, które posiadasz, a następnie dodaj nowe umiejętności, które chciałbyś rozwijać.</p>
-      <p> Nasz system zasugeruje Ci najlepsze ścieżki rozwoju.</p>
+      <p>Nasz system zasugeruje Ci najlepsze ścieżki rozwoju.</p>
       <p>W celu dodania nowej kwalifikacji wypełnij formularz poniżej.
-        W celu edycji kwalifikacji kliknij przycisk "Edytuj" obok kwalifikacji, którą chcesz zmodyfikować.</p>
+        W celu dodania kwalifikacji kliknij "Add", ale wczesniej wybierz poziom swojej znojomosci klikajac gwiazdke.</p>
     </div>
 
     <div class="search-container container">
@@ -19,31 +19,45 @@
     </div>
   </div>
 
-  <div class="qualifications-container container">
-    <div *ngFor="let qualification of qualifications" class="qualification">
-      <h2>{{ qualification.name }}</h2>
-      <p class="description">{{ qualification.description }}</p>
-      <div class="qualification-buttons">
-        <button class="details-button" (click)="showDetails(qualification.id)">Pokaż szczegóły</button>
-        <div class="edit-delete-buttons">
-          <button (click)="addQualificationToUser(qualification)">Add</button>
-          <button (click)="deleteQualification(qualification.id)">Usuń</button>
-        </div>
-        <button class="star-button" (click)="toggleStar(qualification)">
-          <i class="material-icons">{{ qualification.isStarred ? 'star' : 'star_border' }}</i>
-        </button>
-        <div *ngIf="qualification.isStarred" class="level-selector">
-          <select [(ngModel)]="qualification.level">
-            <option value="beginner">Beginner</option>
-            <option value="intermediate">Intermediate</option>
-            <option value="expert">Expert</option>
-          </select>
-          <p class="selected-level">Selected level: {{ qualification.level }}</p>
-        </div>
-        <p *ngIf="qualification.errorMessage" class="error-message">{{ qualification.errorMessage }}</p>
+  <div class="level-info">
+    <h3>Level Information</h3>
+    <ul>
+      <li><strong>Beginner:</strong> 0 to 1 year</li>
+      <li><strong>Intermediate:</strong> 1 to 3 years</li>
+      <li><strong>Expert:</strong> More than 3 years</li>
+    </ul>
+  </div>
+
+  <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div>
+
+</div>
+<div class="qualifications-container container">
+  <div *ngFor="let qualification of qualifications" class="qualification">
+    <h2>{{ qualification.name }}</h2>
+    <p class="description">{{ qualification.description }}</p>
+    <div class="qualification-buttons">
+      <button class="details-button" (click)="showDetails(qualification.id)">Pokaż szczegóły</button>
+      <div class="edit-delete-buttons">
+        <button (click)="addQualificationToUser(qualification)">Add</button>
+        <button (click)="deleteQualification(qualification.id)">Usuń</button>
       </div>
+      <button class="star-button" (click)="toggleStar(qualification)">
+        <i class="material-icons">{{ qualification.isStarred ? 'star' : 'star_border' }}</i>
+      </button>
+      <div *ngIf="qualification.isStarred" class="level-selector">
+        <select [(ngModel)]="qualification.level">
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="expert">Expert</option>
+        </select>
+        <p class="selected-level">Selected level: {{ qualification.level }}</p>
+      </div>
+      <p *ngIf="qualification.errorMessage" class="error-message">{{ qualification.errorMessage }}</p>
     </div>
   </div>
+</div>
 
   <div class="form-container">
     <h2>{{ isEditing ? 'Edytuj kwalifikację' : 'Dodaj nową kwalifikację' }}</h2>
@@ -56,8 +70,4 @@
       <button type="button" *ngIf="isEditing" (click)="cancelEdit()">Anuluj</button>
     </form>
   </div>
-
-  <!-- Existing content -->
-</div>
-
 
