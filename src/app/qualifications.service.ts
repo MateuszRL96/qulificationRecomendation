@@ -6,6 +6,7 @@ import {Observable, of} from 'rxjs';
   providedIn: 'root'
 })
 export class QualificationsService {
+  private api2Url = 'http://localhost:8080';
   private apiUrl = 'api';
   private secondApiUrl = 'http://localhost:8080/api/user-qualifications/add';
 
