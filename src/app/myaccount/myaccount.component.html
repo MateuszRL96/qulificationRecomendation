@@ -1,5 +1,39 @@
+<div class="upload-cv-container">
+  <h2>Upload CV</h2>
+  <form (ngSubmit)="uploadCv()">
+    <input type="file" (change)="onFileSelected($event)" accept=".pdf" required>
+    <button type="submit">Upload CV</button>
+  </form>
+  <div *ngIf="extractedData">
+    <h3>Extracted Data</h3>
+    <div *ngIf="extractedData.Edukacja">
+      <h4>Edukacja</h4>
+      <ul>
+        <li *ngFor="let item of extractedData.Edukacja">{{ item }}</li>
+      </ul>
+    </div>
+    <div *ngIf="extractedData.Kariera">
+      <h4>Kariera</h4>
+      <ul>
+        <li *ngFor="let item of extractedData.Kariera">{{ item }}</li>
+      </ul>
+    </div>
+    <div *ngIf="extractedData.Umiejetnosci">
+      <script>
+      console.log(extractedData.Umiejetnosci);
+      </script>
+      <h4>Umiejętności</h4>
+      <ul>
+      <li *ngFor="let item of extractedData.Umiejetnosci">{{ item }}</li>
+      </ul>
+    </div>
+    <button (click)="saveData()" class="save-button">Zapisz dane</button>
+  </div>
+</div>
 
-  <div class="my-account-container" *ngIf="user">
+
+
+<div class="my-account-container" *ngIf="user">
     <h2>My Account</h2>
     <p><strong>ID:</strong> {{ user.id }}</p>
     <p><strong>Name:</strong> {{ user.name }}</p>
@@ -8,6 +42,7 @@
     <p><strong>Picture:</strong> <img *ngIf="user.picture" [src]="user.picture" alt="User Picture"></p>
     <p><strong>Login Date:</strong> {{ user.loginDate | date:'medium' }}</p>
   </div>
+  
   <div *ngIf="!showLoginForm; else loginForm">
   <div class="profile-form-container">
     <h2>Create Profile</h2>
@@ -39,6 +74,7 @@
       <button type="submit">Create Profile</button>
     </form>
   </div>
+  
 </div>
 
 <ng-template #loginForm>
