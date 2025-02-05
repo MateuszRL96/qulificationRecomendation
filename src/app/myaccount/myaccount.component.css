@@ -139,3 +139,70 @@
 .login-form-container form button:hover {
   background-color: #0c430f;
 }
+
+.upload-cv-container {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 600px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #e9f7ef; /* Light green background */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.upload-cv-container:hover {
+  background-color: #d0e8db; /* Slightly darker green on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.upload-cv-container h2 {
+  margin-bottom: 15px;
+  font-size: 1.5em;
+  color: #2e7d32; /* Dark green color */
+}
+
+.upload-cv-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.upload-cv-container input[type="file"] {
+  margin-bottom: 10px;
+}
+
+.upload-cv-container button {
+  align-self: flex-start;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0c430f; /* Dark green background */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.upload-cv-container button:hover {
+  background-color: #1b5e20; /* Darker green on hover */
+}
+
+.upload-cv-container h3 {
+  margin-top: 20px;
+  font-size: 1.3em;
+  color: #2e7d32; /* Dark green color */
+}
+
+.upload-cv-container h4 {
+  margin-top: 10px;
+  font-size: 1.2em;
+  color: #555;
+}
+
+.upload-cv-container ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.upload-cv-container ul li {
+  margin-bottom: 5px;
+  color: #666;
+}

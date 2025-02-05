@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UsersService } from '../users.service';
 import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-my-account',
@@ -16,8 +17,10 @@ export class MyAccountComponent implements OnInit {
   showLoginForm: boolean = false;
   loginData: any = { email: '', password: '' };
   errorMessage: string = '';
+  selectedFile: File | null = null;
+  extractedData: any;
 
-  constructor(private usersService: UsersService) {}
+  constructor(private usersService: UsersService, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.usersService.getCurrentUser().subscribe((data: any) => {
@@ -43,5 +46,38 @@ export class MyAccountComponent implements OnInit {
   login(): void {
     // Handle login logic here
     console.log('Logging in with', this.loginData);
+  }
+
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
+
+  uploadCv() {
+    const formData = new FormData();
+    if (this.selectedFile) {
+      formData.append('file', this.selectedFile);
+    } else {
+      console.error('No file selected');
+    }
+  
+    this.http.post('http://localhost:8080/api/cv/extract', formData).subscribe(
+      (response) => {
+        this.extractedData = response;
+      },
+      (error) => {
+        console.error('Error uploading file', error);
+      }
+    );
+  }
+
+  saveData() {
+    this.http.post('http://localhost:8080/api/cv/save', this.extractedData).subscribe(
+      response => {
+        console.log('Dane zapisane pomyślnie', response);
+      },
+      error => {
+        console.error('Błąd podczas zapisywania danych', error);
+      }
+    );
   }
 }
